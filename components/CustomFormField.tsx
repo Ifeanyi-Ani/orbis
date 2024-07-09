@@ -83,9 +83,11 @@ const CustomFormField = (props: CustomProps) => {
       name={name}
       render={function ({ field }) {
         return (
-          <FormItem className="flex-1">
+          <FormItem className="flex-1 mb-3">
             {fieldType !== FormFieldTypes.CHECKBOX && label && (
-              <FormLabel>{label}</FormLabel>
+              <FormLabel className="text-14-medium dark:text-primary-200 ">
+                {label}
+              </FormLabel>
             )}
             <RenderField field={field} props={props} />
             <FormMessage className="text-red-400" />
