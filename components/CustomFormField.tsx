@@ -12,6 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Control } from "react-hook-form";
 import { FormFieldTypes } from "./forms/LoginForm";
 import Image from "next/image";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 interface CustomProps {
   control: Control<any>;
@@ -54,15 +56,17 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
       );
     case FormFieldTypes.PHONE_INPUT:
       return (
-        <div className="flex rounded-md border border-primary-500 bg-primary-950">
-          <FormControl>
-            <Input
-              placeholder={placeholder}
-              {...field}
-              className="bg-primary-900 text-accent-600 placeholder:text-primary-600 border-primary-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0"
-            />
-          </FormControl>
-        </div>
+        <FormControl>
+          <PhoneInput
+            defaultCountry="NG"
+            international
+            withCoutryCallingCode
+            value={field.value as E164Number | undefined}
+            onChange={field.onChange}
+            placeholder={placeholder}
+            className="mt-2 pl-2 h-11 rounded-md px-3 text-sm border bg-primary-900 placeholder:text-primary-600 border-primary-500 w-full"
+          />
+        </FormControl>
       );
     default:
       break;
