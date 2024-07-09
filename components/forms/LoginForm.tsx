@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import { Form } from "@/components/ui/form";
 import CustomFormField from "../CustomFormField";
+import SubmitButton from "../SubmitButton";
 
 export enum FormFieldTypes {
   INPUT = "input",
@@ -44,35 +45,35 @@ const LoginForm = () => {
           <p className="text-primary-700">
             Please Provide your login details to continue
           </p>
-
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldTypes.INPUT}
-            name="username"
-            label="Username"
-            placeholder="emmy"
-            iconSrc="/assets/icons/user.svg"
-            iconAlt="user"
-          />
-
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldTypes.INPUT}
-            name="email"
-            label="Email"
-            placeholder="emmyab@gmail.com"
-            iconSrc="/assets/icons/email.svg"
-            iconAlt="email"
-          />
-
-          <CustomFormField
-            control={form.control}
-            fieldType={FormFieldTypes.PHONE_INPUT}
-            name="phone"
-            label="Phone number"
-            placeholder="(234)8110463553"
-          />
         </section>
+        <CustomFormField
+          control={form.control}
+          fieldType={FormFieldTypes.INPUT}
+          name="username"
+          label="Username"
+          placeholder="emmy"
+          iconSrc="/assets/icons/user.svg"
+          iconAlt="user"
+        />
+
+        <CustomFormField
+          control={form.control}
+          fieldType={FormFieldTypes.INPUT}
+          name="email"
+          label="Email"
+          placeholder="emmyab@gmail.com"
+          iconSrc="/assets/icons/email.svg"
+          iconAlt="email"
+        />
+
+        <CustomFormField
+          control={form.control}
+          fieldType={FormFieldTypes.PHONE_INPUT}
+          name="phone"
+          label="Phone number"
+          placeholder="(234)8110463553"
+        />
+        <SubmitButton isLoading={false}>Login</SubmitButton>
       </form>
     </Form>
   );
