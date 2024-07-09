@@ -1,3 +1,4 @@
+import LoginForm from "@/components/forms/LoginForm";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -13,9 +14,8 @@ export default function Home() {
             height={1000}
             className="mb-12 h-10 w-fit"
           />
-          <h1>logo</h1>
-          <div>form</div>
-          <Button>Click</Button>
+
+          <LoginForm />
         </div>
       </section>
     </main>
