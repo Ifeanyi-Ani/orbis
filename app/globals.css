@@ -271,6 +271,10 @@
     @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
   }
 
+  .PhoneInputInput {
+    @apply dark:bg-primary-900 !important;
+  }
+
   /* =====  REACT DATE PICKER OVERRIDES */
   .date-picker {
     @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-md px-3 outline-none !important;
@@ -340,7 +344,6 @@
 .PhoneInputInput {
   outline: none;
   margin-left: 4px;
-  background: #1a1d21;
   font-size: 14px;
   font-weight: 500;
 }
@@ -349,3 +352,6 @@
   color: #1a1d21;
 }
 
+.PhoneInputCountrySelect {
+  @apply dark:bg-primary-900 !important;
+}

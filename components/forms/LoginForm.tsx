@@ -49,10 +49,28 @@ const LoginForm = () => {
             control={form.control}
             fieldType={FormFieldTypes.INPUT}
             name="username"
-            label="username"
+            label="Username"
             placeholder="emmy"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldTypes.INPUT}
+            name="email"
+            label="Email"
+            placeholder="emmyab@gmail.com"
+            iconSrc="/assets/icons/email.svg"
+            iconAlt="email"
+          />
+
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldTypes.PHONE_INPUT}
+            name="phone"
+            label="Phone number"
+            placeholder="(234)8110463553"
           />
         </section>
       </form>

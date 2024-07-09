@@ -35,7 +35,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (fieldType) {
     case FormFieldTypes.INPUT:
       return (
-        <div className="flex rounded-md border border-primary-500 bg-primary-950">
+        <div className="flex rounded-md border border-primary-500 dark:bg-primary-950">
           {iconSrc && (
             <Image
               src={iconSrc}
@@ -49,7 +49,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             <Input
               placeholder={placeholder}
               {...field}
-              className="bg-primary-900 text-accent-600 placeholder:text-primary-600 border-primary-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="dark:bg-primary-900 text-accent-600 placeholder:text-primary-600 h-11 border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
           </FormControl>
         </div>
@@ -64,7 +64,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             value={field.value as E164Number | undefined}
             onChange={field.onChange}
             placeholder={placeholder}
-            className="mt-2 pl-2 h-11 rounded-md px-3 text-sm border bg-primary-900 placeholder:text-primary-600 border-primary-500 w-full"
+            className="PhoneInputInput mt-2 pl-2 h-11 rounded-md px-3 text-sm border dark:bg-primary-900 placeholder:text-primary-600 border-primary-500 w-full"
           />
         </FormControl>
       );
