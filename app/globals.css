@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================== TAILWIND STYLES */
 @layer base {
   :root {
     --background: 210 100% 98%;
@@ -58,350 +57,38 @@
     --chart-4: 210 100% 60%;
     --chart-5: 345 100% 45%;
   }
-  /* Remove scrollbar */
-  .remove-scrollbar::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    border-radius: 0px;
-  }
-
-  .remove-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .remove-scrollbar::-webkit-scrollbar-thumb {
-    background: transparent;
-    border-radius: 0px;
-  }
-
-  .remove-scrollbar::-webkit-scrollbar-thumb:hover {
-    /* background: #1e2238; */
-    background: transparent;
-  }
 }
 
 @layer utilities {
-  /* ===== UTILITIES */
-  .sidebar {
-    @apply remove-scrollbar bg-black-800 w-full max-w-72 flex-col overflow-auto px-7 py-10;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .custom-scrollbar {
+    --scrollbar-thumb: hsl(210, 100%, 20%);
+    --scrollbar-track: hsl(210, 100%, 10%);
+    --scrollbar-width: 10px;
+
+    scrollbar-width: var(--scrollbar-width);
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 
-  .left-sidebar {
-    @apply hidden lg:flex;
+  .custom-scrollbar::-webkit-scrollbar {
+    width: var(--scrollbar-width);
   }
 
-  .right-sidebar {
-    @apply hidden xl:flex;
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
   }
 
-  .clip-text {
-    @apply bg-clip-text text-transparent;
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 20px;
+    border: 3px solid var(--scrollbar-track);
   }
-
-  .bg-image {
-    @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
-  }
-
-  .header {
-    @apply text-32-bold md:text-36-bold;
-  }
-
-  .sub-header {
-    @apply text-18-bold md:text-24-bold;
-  }
-
-  .container {
-    @apply relative flex-1 overflow-y-auto px-[5%];
-  }
-
-  .sub-container {
-    @apply mx-auto flex size-full flex-col py-10;
-  }
-
-  .side-img {
-    @apply hidden h-full object-cover md:block;
-  }
-
-  .copyright {
-    @apply text-14-regular text-dark-600 justify-items-end text-center xl:text-left;
-  }
-
-  /* ==== SUCCESS */
-  .success-img {
-    @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
-  }
-
-  .request-details {
-    @apply border-dark-400 flex w-full flex-col items-center gap-8 border-y-2 py-8 md:w-fit md:flex-row;
-  }
-
-  /* ===== ADMIN */
-  .admin-header {
-    @apply bg-dark-200 sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl px-[5%] py-5 shadow-lg xl:px-12;
-  }
-
-  .admin-main {
-    @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
-  }
-
-  .admin-stat {
-    @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
-  }
-
-  /* ==== FORM */
-  .radio-group {
-    @apply border-dark-500 bg-dark-400 flex h-full flex-1 items-center gap-2 rounded-md border border-dashed p-3;
-  }
-
-  .checkbox-label {
-    @apply text-dark-700 cursor-pointer text-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
-  }
-
-  /* ==== File Upload */
-  .file-upload {
-    @apply text-12-regular border-dark-500 bg-dark-400 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed p-5;
-  }
-
-  .file-upload_label {
-    @apply text-dark-600 flex flex-col justify-center gap-2 text-center;
-  }
-
-  /* ==== Stat Card */
-  .stat-card {
-    @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
-  }
-
-  /* ==== Status Badge */
-  .status-badge {
-    @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
-  }
-
-  /* Data Table */
-  .data-table {
-    @apply border-dark-400 z-10 w-full overflow-hidden rounded-lg border shadow-lg;
-  }
-
-  .table-actions {
-    @apply flex w-full items-center justify-between space-x-2 p-4;
-  }
-
-  /* ===== ALIGNMENTS */
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
-
-  /* ===== TYPOGRAPHY */
-  .text-36-bold {
-    @apply text-[36px] font-bold leading-[40px];
-  }
-
-  .text-24-bold {
-    @apply text-[24px] font-bold leading-[28px];
-  }
-
-  .text-32-bold {
-    @apply text-[32px] font-bold leading-[36px];
-  }
-
-  .text-18-bold {
-    @apply text-[18px] font-bold leading-[24px];
-  }
-
-  .text-16-semibold {
-    @apply text-[16px] font-semibold leading-[20px];
-  }
-
-  .text-16-regular {
-    @apply text-[16px] font-normal leading-[20px];
-  }
-
-  .text-14-medium {
-    @apply text-[14px] font-medium leading-[18px];
-  }
-
-  .text-14-regular {
-    @apply text-[14px] font-normal leading-[18px];
-  }
-
-  .text-12-regular {
-    @apply text-[12px] font-normal leading-[16px];
-  }
-
-  .text-12-semibold {
-    @apply text-[12px] font-semibold leading-[16px];
-  }
-
-  /* =====  SHADCN OVERRIDES */
-  .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
-  }
-
-  .shad-danger-btn {
-    @apply bg-red-700 text-white !important;
-  }
-
-  .shad-gray-btn {
-    @apply border-dark-500 bg-dark-400 cursor-pointer border text-white !important;
-  }
-
-  .shad-input-label {
-    @apply text-14-medium text-dark-700 !important;
-  }
-
-  .shad-input {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-input-icon {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-textArea {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-combobox-item {
-    @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
-  }
-
-  .shad-combobox-trigger {
-    @apply h-11 !important;
-  }
-
-  .shad-select-trigger {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
-  }
-
-  .shad-select-content {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
-
-  .shad-dialog {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
-
-  .shad-dialog button {
-    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-error {
-    @apply text-red-400 !important;
-  }
-
-  .shad-table {
-    @apply overflow-hidden rounded-lg !important;
-  }
-
-  .shad-table-row-header {
-    @apply border-dark-400 text-light-200 border-b hover:bg-transparent !important;
-  }
-
-  .shad-table-row {
-    @apply border-dark-400 text-light-200 border-b !important;
-  }
-
-  .shad-otp {
-    @apply flex w-full justify-between !important;
-  }
-
-  .shad-otp-slot {
-    @apply text-36-bold border-dark-500 flex size-16 justify-center gap-4 rounded-lg border !important;
-  }
-
-  .shad-alert-dialog {
-    @apply bg-dark-400 border-dark-500 space-y-5 outline-none !important;
-  }
-
-  .shad-sheet-content button {
-    @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
-
-  /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
-  .input-phone {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 mt-2 h-11 rounded-md border px-3 text-sm !important;
-  }
-
-  /* =====  REACT DATE PICKER OVERRIDES */
-  .date-picker {
-    @apply placeholder:text-dark-600 text-14-medium h-11 w-full overflow-hidden rounded-md border-transparent px-3 outline-none !important;
-  }
-}
-
-/* =====  REACT-DATEPICKER OVERRIDES */
-.react-datepicker-wrapper.date-picker {
-  display: flex;
-  align-items: center;
-}
-
-.react-datepicker,
-.react-datepicker__time,
-.react-datepicker__header,
-.react-datepicker__current-month,
-.react-datepicker__day-name,
-.react-datepicker__day,
-.react-datepicker-time__header {
-  background-color: #1a1d21 !important;
-  border-color: #363a3d !important;
-  color: #abb8c4 !important;
-}
-
-.react-datepicker__current-month,
-.react-datepicker__day-name,
-.react-datepicker-time__header {
-  color: #ffffff !important;
-}
-
-.react-datepicker__triangle {
-  fill: #1a1d21 !important;
-  color: #1a1d21 !important;
-  stroke: #1a1d21 !important;
-}
-
-.react-datepicker__time-list-item:hover {
-  background-color: #363a3d !important;
-}
-
-.react-datepicker__input-container input {
-  background-color: #1a1d21 !important;
-  width: 100%;
-  outline: none;
-}
-
-.react-datepicker__day--selected {
-  background-color: #24ae7c !important;
-  color: #ffffff !important;
-  border-radius: 4px;
-}
-
-.react-datepicker__time-list-item--selected {
-  background-color: #24ae7c !important;
-}
-
-.react-datepicker__time-container {
-  border-left: 1px solid #363a3d !important;
-}
-
-.react-datepicker__time-list-item {
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* =====  REACT PHONE NUMBER INPUT OVERRIDES */
-.PhoneInputInput {
-  outline: none;
-  margin-left: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.PhoneInputInput::placeholder {
-  color: #1a1d21;
-}
-
-.PhoneInputCountrySelect {
-  @apply dark:bg-primary !important;
 }
