@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+import * as React from "react";
 import { Josefin_Sans } from "next/font/google";
-import "./globals.css";
+
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import type { Metadata } from "next";
+
+import "./globals.css";
 
 const JosefinSans = Josefin_Sans({
   subsets: ["latin"],
@@ -24,13 +28,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen dark:bg-primary-950 font-sans",
-          JosefinSans.variable,
+          "min-h-screen w-full bg-background font-sans text-foreground",
+          JosefinSans.variable
         )}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

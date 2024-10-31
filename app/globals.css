@@ -4,6 +4,60 @@
 
 /* ========================================== TAILWIND STYLES */
 @layer base {
+  :root {
+    --background: 210 100% 98%;
+    --foreground: 210 100% 10%;
+    --card: 210 100% 100%;
+    --card-foreground: 210 100% 10%;
+    --popover: 210 100% 100%;
+    --popover-foreground: 210 100% 10%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 100% 98%;
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 210 100% 98%;
+    --muted: 210 100% 90%;
+    --muted-foreground: 210 100% 30%;
+    --accent: 46 65% 53%;
+    --accent-foreground: 210 100% 10%;
+    --destructive: 345 100% 50%;
+    --destructive-foreground: 210 100% 98%;
+    --border: 210 100% 80%;
+    --input: 210 100% 80%;
+    --ring: 210 100% 45%;
+    --radius: 1rem;
+    --chart-1: 210 100% 45%;
+    --chart-2: 320 100% 60%;
+    --chart-3: 46 65% 53%;
+    --chart-4: 180 100% 45%;
+    --chart-5: 345 100% 50%;
+  }
+
+  .dark {
+    --background: 210 100% 8%;
+    --foreground: 210 100% 95%;
+    --card: 210 100% 10%;
+    --card-foreground: 210 100% 95%;
+    --popover: 210 100% 10%;
+    --popover-foreground: 210 100% 95%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 100% 10%;
+    --secondary: 320 100% 50%;
+    --secondary-foreground: 210 100% 95%;
+    --muted: 210 100% 15%;
+    --muted-foreground: 210 100% 70%;
+    --accent: 46 65% 53%;
+    --accent-foreground: 210 100% 10%;
+    --destructive: 345 100% 45%;
+    --destructive-foreground: 210 100% 95%;
+    --border: 210 100% 20%;
+    --input: 210 100% 20%;
+    --ring: 180 100% 50%;
+    --chart-1: 180 100% 50%;
+    --chart-2: 320 100% 50%;
+    --chart-3: 46 65% 53%;
+    --chart-4: 210 100% 60%;
+    --chart-5: 345 100% 45%;
+  }
   /* Remove scrollbar */
   .remove-scrollbar::-webkit-scrollbar {
     width: 0px;
@@ -29,7 +83,7 @@
 @layer utilities {
   /* ===== UTILITIES */
   .sidebar {
-    @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+    @apply remove-scrollbar bg-black-800 w-full max-w-72 flex-col overflow-auto px-7 py-10;
   }
 
   .left-sidebar {
@@ -69,7 +123,7 @@
   }
 
   .copyright {
-    @apply text-14-regular justify-items-end text-center text-dark-600 xl:text-left;
+    @apply text-14-regular text-dark-600 justify-items-end text-center xl:text-left;
   }
 
   /* ==== SUCCESS */
@@ -78,12 +132,12 @@
   }
 
   .request-details {
-    @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+    @apply border-dark-400 flex w-full flex-col items-center gap-8 border-y-2 py-8 md:w-fit md:flex-row;
   }
 
   /* ===== ADMIN */
   .admin-header {
-    @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+    @apply bg-dark-200 sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl px-[5%] py-5 shadow-lg xl:px-12;
   }
 
   .admin-main {
@@ -96,20 +150,20 @@
 
   /* ==== FORM */
   .radio-group {
-    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
+    @apply border-dark-500 bg-dark-400 flex h-full flex-1 items-center gap-2 rounded-md border border-dashed p-3;
   }
 
   .checkbox-label {
-    @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+    @apply text-dark-700 cursor-pointer text-sm font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
   }
 
   /* ==== File Upload */
   .file-upload {
-    @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+    @apply text-12-regular border-dark-500 bg-dark-400 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed p-5;
   }
 
   .file-upload_label {
-    @apply flex flex-col justify-center gap-2 text-center text-dark-600;
+    @apply text-dark-600 flex flex-col justify-center gap-2 text-center;
   }
 
   /* ==== Stat Card */
@@ -124,7 +178,7 @@
 
   /* Data Table */
   .data-table {
-    @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+    @apply border-dark-400 z-10 w-full overflow-hidden rounded-lg border shadow-lg;
   }
 
   .table-actions {
@@ -142,43 +196,43 @@
 
   /* ===== TYPOGRAPHY */
   .text-36-bold {
-    @apply text-[36px] leading-[40px] font-bold;
+    @apply text-[36px] font-bold leading-[40px];
   }
 
   .text-24-bold {
-    @apply text-[24px] leading-[28px] font-bold;
+    @apply text-[24px] font-bold leading-[28px];
   }
 
   .text-32-bold {
-    @apply text-[32px] leading-[36px] font-bold;
+    @apply text-[32px] font-bold leading-[36px];
   }
 
   .text-18-bold {
-    @apply text-[18px] leading-[24px] font-bold;
+    @apply text-[18px] font-bold leading-[24px];
   }
 
   .text-16-semibold {
-    @apply text-[16px] leading-[20px] font-semibold;
+    @apply text-[16px] font-semibold leading-[20px];
   }
 
   .text-16-regular {
-    @apply text-[16px] leading-[20px] font-normal;
+    @apply text-[16px] font-normal leading-[20px];
   }
 
   .text-14-medium {
-    @apply text-[14px] leading-[18px] font-medium;
+    @apply text-[14px] font-medium leading-[18px];
   }
 
   .text-14-regular {
-    @apply text-[14px] leading-[18px] font-normal;
+    @apply text-[14px] font-normal leading-[18px];
   }
 
   .text-12-regular {
-    @apply text-[12px] leading-[16px] font-normal;
+    @apply text-[12px] font-normal leading-[16px];
   }
 
   .text-12-semibold {
-    @apply text-[12px] leading-[16px] font-semibold;
+    @apply text-[12px] font-semibold leading-[16px];
   }
 
   /* =====  SHADCN OVERRIDES */
@@ -191,7 +245,7 @@
   }
 
   .shad-gray-btn {
-    @apply border border-dark-500 cursor-pointer bg-dark-400 text-white !important;
+    @apply border-dark-500 bg-dark-400 cursor-pointer border text-white !important;
   }
 
   .shad-input-label {
@@ -219,7 +273,7 @@
   }
 
   .shad-select-trigger {
-    @apply bg-dark-400  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
+    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
   }
 
   .shad-select-content {
@@ -239,27 +293,27 @@
   }
 
   .shad-table {
-    @apply rounded-lg overflow-hidden !important;
+    @apply overflow-hidden rounded-lg !important;
   }
 
   .shad-table-row-header {
-    @apply border-b border-dark-400 text-light-200 hover:bg-transparent !important;
+    @apply border-dark-400 text-light-200 border-b hover:bg-transparent !important;
   }
 
   .shad-table-row {
-    @apply border-b border-dark-400 text-light-200 !important;
+    @apply border-dark-400 text-light-200 border-b !important;
   }
 
   .shad-otp {
-    @apply w-full flex justify-between !important;
+    @apply flex w-full justify-between !important;
   }
 
   .shad-otp-slot {
-    @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
+    @apply text-36-bold border-dark-500 flex size-16 justify-center gap-4 rounded-lg border !important;
   }
 
   .shad-alert-dialog {
-    @apply space-y-5 bg-dark-400 border-dark-500 outline-none !important;
+    @apply bg-dark-400 border-dark-500 space-y-5 outline-none !important;
   }
 
   .shad-sheet-content button {
@@ -268,16 +322,12 @@
 
   /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
   .input-phone {
-    @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
-  }
-
-  .PhoneInputInput {
-    @apply dark:bg-primary-900 !important;
+    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 mt-2 h-11 rounded-md border px-3 text-sm !important;
   }
 
   /* =====  REACT DATE PICKER OVERRIDES */
   .date-picker {
-    @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-md px-3 outline-none !important;
+    @apply placeholder:text-dark-600 text-14-medium h-11 w-full overflow-hidden rounded-md border-transparent px-3 outline-none !important;
   }
 }
 
@@ -353,5 +403,5 @@
 }
 
 .PhoneInputCountrySelect {
-  @apply dark:bg-primary-900 !important;
+  @apply dark:bg-primary !important;
 }

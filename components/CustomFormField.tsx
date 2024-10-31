@@ -35,7 +35,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (fieldType) {
     case FormFieldTypes.INPUT:
       return (
-        <div className="flex rounded-md border border-primary-500 dark:bg-primary-950">
+        <div className="flex rounded-md border border-input focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
           {iconSrc && (
             <Image
               src={iconSrc}
@@ -49,7 +49,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             <Input
               placeholder={placeholder}
               {...field}
-              className="dark:bg-primary-900 text-accent-600 placeholder:text-primary-600 h-11 border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="h-11 border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
           </FormControl>
         </div>
@@ -61,10 +61,10 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
             defaultCountry="NG"
             international
             withCoutryCallingCode
-            value={field.value as E164Number | undefined}
+            value={field.value}
             onChange={field.onChange}
             placeholder={placeholder}
-            className="PhoneInputInput mt-2 pl-2 h-11 rounded-md px-3 text-sm border dark:bg-primary-900 placeholder:text-primary-600 border-primary-500 w-full"
+            className="mt-2 h-11 w-full rounded-md border px-3 pl-2 text-sm [&>*]:bg-background"
           />
         </FormControl>
       );
@@ -83,14 +83,12 @@ const CustomFormField = (props: CustomProps) => {
       name={name}
       render={function ({ field }) {
         return (
-          <FormItem className="flex-1 mb-3">
+          <FormItem className="mb-3 flex-1">
             {fieldType !== FormFieldTypes.CHECKBOX && label && (
-              <FormLabel className="text-14-medium dark:text-primary-200 ">
-                {label}
-              </FormLabel>
+              <FormLabel className="text-14-medium">{label}</FormLabel>
             )}
             <RenderField field={field} props={props} />
-            <FormMessage className="text-red-400" />
+            <FormMessage />
           </FormItem>
         );
       }}

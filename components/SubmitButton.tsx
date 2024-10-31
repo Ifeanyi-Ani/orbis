@@ -12,7 +12,7 @@ const SubmitButton = (props: ButtonProps) => {
   const { isLoading, className, children } = props;
   return (
     <Button
-      className={className ?? "w-full bg-green-500 text-white"}
+      className={className ?? "w-full"}
       type="submit"
       disabled={isLoading}
     >
