@@ -3,28 +3,51 @@ import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "sonner";
 
 import { Form } from "@/components/ui/form";
-import CustomFormField, { FormFieldType } from "@/components/CustomFormField";
-import SubmitButton from "@/components/SubmitButton";
+import { Label } from "@/components/ui/label";
+import CustomFormField, {
+  FormFieldType,
+} from "@/components/custorm-form-field";
+import SubmitButton from "@/components/submit-button";
+import { useLoginMutation } from "@/features/auth/services/auth-service";
 
 const formSchema = z.object({
-  username: z
+  email: z
     .string()
     .min(2, { message: "Username must be at least 2 characters" })
-    .max(50),
+    .email(),
+  password: z.string(),
 });
 
 const LoginForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
+      password: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const [login, { isLoading }] = useLoginMutation();
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await login(values).unwrap();
+      toast.success("You successfully loggedin");
+    } catch (error: any) {
+      if ("data" in error) {
+        toast.error(
+          <div>
+            <Label className="text-destructive">{error?.data?.error}</Label>
+            <p>{error?.data?.message}</p>
+          </div>
+        );
+      } else {
+        toast.error("An unexpected error occured");
+      }
+    }
   }
 
   return (
@@ -73,7 +96,7 @@ const LoginForm = () => {
         {/*   label="Phone number" */}
         {/*   placeholder="(234)8110463553" */}
         {/* /> */}
-        <SubmitButton isLoading={false}>Login</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Login</SubmitButton>
       </form>
     </Form>
   );

@@ -3,6 +3,7 @@ import { Josefin_Sans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 import type { Metadata } from "next";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <main>{children}</main>
+            <Toaster position="top-center" invert richColors />
           </ThemeProvider>
         </StoreProvider>
       </body>
