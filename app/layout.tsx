@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
 
 const JosefinSans = Josefin_Sans({
   subsets: ["latin"],
@@ -32,14 +33,16 @@ export default function RootLayout({
           JosefinSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main>{children}</main>
+          </ThemeProvider>
+        </StoreProvider>
       </body>
     </html>
   );
