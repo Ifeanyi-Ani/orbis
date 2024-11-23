@@ -56,7 +56,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <div
           className={cn(
-            "flex rounded-md border border-input focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+            "flex rounded-md border border-input focus-within:outline-none focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
             props.className
           )}
         >
